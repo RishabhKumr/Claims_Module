@@ -1,0 +1,143 @@
+
+.container{
+    width: 100%;
+    height: auto;
+    margin-bottom: 40px;
+}
+#outerDiv{
+    background-color: rgb(249, 245, 245);
+    margin: auto;
+    margin-top: 40px;
+    width: 60%;
+    border-radius: 5px;
+}
+
+#innerDiv{
+    padding-left: 30px;
+    margin-bottom: 40px;
+}
+
+h1{
+    font-size: 20px;
+    margin-top: 18px;
+    padding-top: 20px;
+    color: #026bc6;
+}
+
+h3{
+    font-size: 17px;
+}
+#subHeader{
+    color: #6c8787;
+}
+
+.column {
+    float: left;
+    width: 33.33%;
+    overflow: hidden;
+    height: auto;
+}
+
+.form:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+input{
+    margin-top: 5px;
+    width: 200px;
+    padding: 5px;
+}
+select{
+    margin-top: 5px;
+    width: 200px;
+    padding: 5px;
+}
+
+button{
+    width: 190px;
+    margin-bottom: 30px;
+    background-color: #026bc6;
+    color: antiquewhite;
+    padding: 7px;
+}
+
+Button:hover{
+    background-color: #44a6df;
+}
+
+
+
+
+
+
+/* fooyer */
+.footer {
+    padding: 20px;
+    text-align: center;
+    background:black;
+    width: 100%;
+    margin: auto;
+    position: relative;
+    left: 0;
+    bottom: 0;
+  }
+  .social a{
+      padding: 7px;
+      margin:7px;
+  }
+  fa {
+    padding: 65px;
+    font-size: 12px;
+    width: 40px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 10px;
+    border-radius: 50%;
+    }
+    
+    .fa:hover {
+    opacity: 0.7;
+    }
+    
+    .fa-facebook {
+    background: #3B5998;
+    color: white;
+    }
+    
+    .fa-twitter {
+    background: #55ACEE;
+    color: white;
+    }
+    
+    .fa-google {
+    background: #dd4b39;
+    color: white;
+    }
+    
+    .fa-linkedin {
+    background: #007bb5;
+    color: white;
+    }
+    
+    .fa-youtube {
+    background: #bb0000;
+    color: white;
+    }
+    .social
+    {
+    display: block;
+    }
+    .material-icons
+    {
+      font-size:17px;
+    }
+    .error { color: Red; }
+    .PAN { text-transform: uppercase; }
+
+    span{
+        color: #bb0000;
+        
+        overflow: visible;
+    }

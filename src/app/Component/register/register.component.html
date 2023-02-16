@@ -1,0 +1,125 @@
+<div class="container">
+    <div id="outerDiv">
+        <div id="innerDiv">
+            <h1 id="reg">Member Registration</h1>
+            <h3 id="subHeader">Personal Details</h3>
+            <form class="form" name="myForm" #myForm="ngForm" #regForm='ngForm' (ngSubmit)='onSubmit(myForm)'>
+                <div class="form">
+                    <!-- First Divison -->
+                    <div class="column">
+
+
+                        <label for="name">Full Name</label><br />
+                        <input name="memberName" id="memberName" class="form-control" type="text"
+                            placeholder="Enter your name" required [(ngModel)]="member.memberName" [pattern]="fullnamePattern"
+                            #memberName="ngModel">
+                        <div *ngIf="memberName.errors?.['pattern']">
+                            <span>Invalid Username.*</span></div>
+                        <div *ngIf="memberName.errors?.['required']">
+                            <span>Name is required.*</span>
+                        </div>
+                        <br/>
+                        <label for="mobilenumber">Mobile Number</label><br />
+                        <input name="memberMobile" id="mobilenumber" type="tel" placeholder="Enter mobile number"
+                        [pattern]="mobNumberPattern"  minlength="10" maxlength="10" required [(ngModel)]="member.memberContactNo" #mobNumber="ngModel">
+                        <div *ngIf="mobNumber.errors && myForm.submitted && !isValidFormSubmitted" [ngClass] = "'error'">  
+                            <div *ngIf="mobNumber.errors['pattern']">  
+                              Mobile number not valid.  
+                            </div>   
+                          </div>
+                          <div *ngIf="mobNumber.errors?.['required']">
+                            <span>Mobile number  is required.*</span>
+                        </div>
+
+                        <br /><br/>
+                        <label for="idtype">Address</label><br />
+                        <input name="memberaddress" id="idtype" type="text" placeholder="Enter Address" required #address="ngModel"
+                            [(ngModel)]="member.memberAddress">
+                            <div *ngIf="address.errors?.['required']">
+                                <span>Address  is required.*</span>
+                            </div><br/><br/>
+
+                    </div>
+                    <!-- Second Divison -->
+                    <div class="column">
+                        <label for="idnumber">PAN Number</label><br />
+                        <input name="pan" id="idnumber" type="text" placeholder="Enter PAN" required
+                         [pattern]="panCardPattern"   [(ngModel)]="member.memberPAN"  #pancard="ngModel">
+                         
+                         
+                            <div *ngIf="pancard.errors?.['pattern']">  
+                              <span>PAN Format error.*</span>
+                            </div>   
+                
+                          <div *ngIf="pancard.errors?.['required']">
+                            <span>PAN is required.*</span>
+                        </div>
+                         <br/><br/>
+                        <label for="occupation">Country</label><br />
+                        <select name="country" id="occupation" type="text" placeholder="Enter Country" required #country="ngModel"
+                            [(ngModel)]="member.memberCountry">
+                            <option default ngValue="Select">Select</option>
+                            <option ngValue="USA">USA</option>
+                            <option ngValue="India">India</option>
+                        </select>
+                        <div *ngIf="country.errors?.['required']">
+                            <span>Please Select Country.*</span>
+                        </div><br /><br/>
+                        <div *ngIf="member.memberCountry === 'India' ">
+                            <label for="issuestate">State</label><br />
+                            <select name="country" id="occupation" type="text" placeholder="Enter Country" required  #state="ngModel"
+                                [(ngModel)]="member.memberState">
+                                <option default ngValue="India">Tamil Nadu</option>
+                                <option ngValue="USA">Uttrakhand</option>
+                            </select>
+                            <div *ngIf="state.errors?.['required']">
+                                <span>Please Select State.*</span>
+                            </div><br />
+                            <br />
+                        </div>
+                        <div *ngIf="member.memberCountry === 'USA' ">
+                            <label for="issuestate">State</label><br />
+                            <select name="country" id="occupation" type="text" placeholder="Enter Country" required #state="ngModel"
+                                [(ngModel)]="member.memberState">
+                                <option default ngValue="New Jersey">New Jersey</option>
+                                <option ngValue="Nevada">Nevada</option>
+                            </select>
+                            <br />
+                        </div>
+                    </div>
+                    <!-- Third Divison -->
+                    <div class="column">
+                        <label for="email">Email</label><br />
+                        <input name="email" id="email" type="email" placeholder="Enter your email" required [pattern]="emailAddressPattern" #email="ngModel"
+                            [(ngModel)]="member.memberEmail" [email]="true">
+            
+                                <div *ngIf="email.errors?.['pattern']">
+                                    <span>Invalid Email.*</span>
+                                </div>
+                                <div *ngIf="email.errors?.['required']">
+                                    <span>Email is required.*</span> </div>
+                            <br/><br/>
+                        <label for="dob">Date of Birth</label><br />
+                        <input name="dob" id="dob" type="date" placeholder="Enter birth date" required  #dob="ngModel"
+                            [(ngModel)]="member.memberDOB">
+                            <div *ngIf="dob.errors?.['required']">
+                                <span>DOB is required.*</span> </div><br /><br />
+
+                    </div>
+                </div>
+                
+                <button type="submit" [disabled]="!regForm.valid">Register →</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="social">
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-google"></a>
+        <a href="#" class="fa fa-linkedin"></a>
+        <a href="#" class="fa fa-youtube"></a>
+    </div>
+    <p style="color: white;"> ©2023 developed & Managed by Insurence Claim Team</p>
+</div>

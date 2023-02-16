@@ -1,0 +1,80 @@
+<div class="container">
+    <div id="outerDiv">
+        <div id="innerDiv">
+            <h1 id="reg">Claim</h1>
+            <h3 id="subHeader">Enter Details to raise claim request</h3>
+            <form name="myForm" #myForm="ngForm" #regForm='ngForm' (ngSubmit)='onSubmit(myForm)'>
+            <div class="form">
+                <!-- First Divison -->
+                <div class="column">
+                    <label for="name">Claim Policy</label><br/>
+                    <select name="policy" id="name" type="text" placeholder="Claim Policy" required
+                        [(ngModel)]="claim.claimName" #policy="ngModel">
+                        <option default ngValue="Policy1">Policy 1</option>
+                        <option ngValue="Policy2">Policy 2</option>
+                        </select>
+                        <div *ngIf="policy.errors?.['required']">
+                            <span>Policy is required.*</span>
+                        </div><br/><br/>
+                    <label for="mobilenumber">Claim Type</label><br/>
+                    <input name="type" type="text" placeholder="Claim Type"  required  [(ngModel)]="claim.claimType" #claimtype = "ngModel">
+                    <div *ngIf="claimtype.errors?.['required']">
+                        <span>Claim Type is required.*</span>
+                    </div><br/><br/>
+                    
+                    <label for="idtype">Claim Amount</label><br/>
+                    <input name="amount" type="text" placeholder="Enter Claim Amount" required  [(ngModel)]="claim.claimAmount" #claimamount="ngModel">
+                    <div *ngIf="claimamount.errors?.['required']">
+                        <span>Claim Amount is required.*</span>
+                    </div><br/><br/>
+                </div>
+                <!-- Second Divison -->
+                <div class="column">
+                    <label for="dob">Admission Date</label><br/>
+                    <input name="dob" type="date" placeholder="Enter Admission Date" required  [(ngModel)]="claim.claimAdmissionDate" #adminssion="ngModel">
+                    <div *ngIf="adminssion.errors?.['required']">
+                        <span>Admission Date is required.*</span>
+                    </div><br/><br/>
+                    <label for="idnumber">Discharge Date</label><br/>
+                    <input name="DT" type="date" placeholder="Enter Discharge Date" required  [(ngModel)]="claim.claimDischargeDate" #dischargedate="ngModel">
+                    <div *ngIf="dischargedate.errors?.['required']">
+                        <span>Discharge Date is required.*</span>
+                    </div><br/><br/>
+                    <label for="name">Claim For</label><br/>
+                    <select name="policy" id="name" type="text" placeholder="Member/Beneficiary" required  [(ngModel)]="claim.claimFor" #for="ngModel">
+                    <option default ngValue="Member">Member</option>
+                    <option ngValue="Beneficiary">Beneficiary</option>
+                    </select>
+                    <div *ngIf="for.errors?.['required']">
+                        <span>Field is required.*</span>
+                    </div><br/><br/>
+                </div>
+                <!-- Third Divison -->
+                <div class="column">
+                    <label for="email">Claim Provider</label><br/>
+                    <input name="email" type="text" placeholder="Enter Claim Provider" required  [(ngModel)]="claim.claimProvider" #provider="ngModel">
+                    <div *ngIf="provider.errors?.['required']">
+                        <span>Provider is required.*</span>
+                    </div><br/><br/>
+                    <label for="issuestate">Claimer ID</label><br/>
+                    <input name="claimerID" type="text" placeholder="Enter Claimer ID" required  [(ngModel)]="claim.claimerId" #id="ngModel">
+                    <div *ngIf="id.errors?.['required']">
+                        <span>Field is required.*</span>
+                    </div><br/>
+                </div>
+            </div>
+            <button type="submit" [disabled]="!regForm.valid">Raise Claim    →</button>
+            </form>
+        </div>
+    </div>
+    </div>
+    <div class="footer">
+        <div class="social">
+          <a href="#" class="fa fa-facebook"></a>
+          <a href="#" class="fa fa-twitter"></a>
+          <a href="#" class="fa fa-google"></a>
+          <a href="#" class="fa fa-linkedin"></a>
+          <a href="#" class="fa fa-youtube"></a>
+        </div>
+        <p style="color: white;"> ©2023 developed & Managed by Insurence Claim Team</p>
+      </div>

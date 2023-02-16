@@ -1,0 +1,105 @@
+<div class="container">
+    <div id="outerDiv">
+        <div id="innerDiv">
+            <h1 id="reg">Update Member</h1>
+            <h3 id="subHeader">Update Personal Details</h3>
+            <form id="userForm"  name="myForm" #myForm="ngForm" #regForm='ngForm' (ngSubmit)='onSubmit(myForm)'>
+            <div class="form">
+                <!-- First Divison -->
+                <div class="column">
+                    <label for="mobilenumbe2">Member ID</label><br/>
+                    <input name="memberid" type="text" placeholder="Enter ID"  required  [(ngModel)]="memberupdate.memberId" required #id="ngModel">
+                    <div *ngIf="id.errors?.['required']">
+                        <span>ID is required.*</span>
+                    </div><br/><br/>
+                    <label for="mobilenumber">Mobile Number</label><br/>
+                    <input name="mobilenumber" type="tel" placeholder="Enter mobile number" pattern="[0-9]{10}" required  [(ngModel)]="memberupdate.memberContactNo" #mobile="ngModel" [pattern]="mobNumberPattern">
+                    <div *ngIf="mobile.errors?.['pattern']">
+                        <span>Invalid Mobile Number.*</span></div>
+                    <div *ngIf="mobile.errors?.['required']">
+                        <span>Mobile Number is required.*</span>
+                    </div><br/><br/>
+                    <label for="idtype">Address</label><br/>
+                    <input name="idtype" type="text" placeholder="Enter Address" required  [(ngModel)]="memberupdate.memberAddress" #address="ngModel">
+                    <div *ngIf="address.errors?.['required']">
+                        <span>Address is required.*</span>
+                    </div><br/><br/>
+                </div>
+                <!-- Second Divison -->
+                <div class="column">
+                    <label for="dob">Date of Birth</label><br/>
+                    <input name="dob" type="date" placeholder="Enter birth date" required  [(ngModel)]="memberupdate.memberDOB" #dob="ngModel" required>
+                    <div *ngIf="dob.errors?.['required']">
+                        <span>DOB is required.*</span>
+                    </div><br/><br/>
+                    <label for="occupation">Country</label><br />
+                    <select name="country" id="occupation" type="text" placeholder="Enter Country" required #country="ngModel"
+                    [(ngModel)]="memberupdate.memberCountry">
+                    <option default ngValue="Select">Select</option>
+                    <option ngValue="USA">USA</option>
+                    <option ngValue="India">India</option>
+                </select>
+                <div *ngIf="country.errors?.['required']">
+                    <span>country is required.*</span>
+                </div><br /><br />
+                    <div *ngIf="memberupdate.memberCountry === 'India' ">
+                        <label for="issuestate">State</label><br />
+                        <select name="country" id="occupation" type="text" placeholder="Enter Country" required #state="ngModel"
+                    [(ngModel)]="memberupdate.memberState">
+                    <option default ngValue="India">Tamil Nadu</option>
+                    <option ngValue="USA">Uttrakhand</option>
+                    </select>
+                    <div *ngIf="state.errors?.['required']">
+                        <span>state is required.*</span>
+                    </div>
+                        <br />
+                        </div>
+                        <div *ngIf="memberupdate.memberCountry === 'USA' ">
+                            <label for="issuestate">State</label><br />
+                            <select name="country" id="occupation" type="text" placeholder="Enter Country" required
+                        [(ngModel)]="memberupdate.memberState" #state="ngModel">
+                        <option default ngValue="New Jersey">New Jersey</option>
+                        <option ngValue="Nevada">Nevada</option>
+                        </select>
+                        <div *ngIf="state.errors?.['required']">
+                            <span>state is required.*</span>
+                        </div>
+                            <br />
+                            </div>
+                    
+                </div>
+                <!-- Third Divison -->
+                <div class="column">
+                    <label for="email">Email</label><br/>
+                    <input name="email" type="email" placeholder="Enter your email" required [pattern]="emailAddressPattern"  [(ngModel)]="memberupdate.memberEmail" required #email="ngModel">
+                    <div *ngIf="email.errors?.['pattern']">
+                        <span>Invalid Email.*</span>
+                    </div>
+                    <div *ngIf="email.errors?.['required']">
+                        <span>Email is required.*</span> </div><br/><br/>
+                    <label for="idnumber">PAN Number</label><br/>
+                    <input name="idnumber" type="text" placeholder="Enter PAN" required  [pattern]="panCardPattern" [(ngModel)]="memberupdate.memberPAN" required #pancard="ngModel">
+                    <div *ngIf="pancard.errors?.['pattern']">  
+                        <span>PAN Format error.*</span>
+                      </div>   
+          
+                    <div *ngIf="pancard.errors?.['required']">
+                      <span>PAN is required.*</span>
+                  </div><br/><br/>
+                </div>
+            </div>
+            <button id="nextButton" type="submit" form="userForm" [disabled]="!regForm.valid">Update   →</button>
+            </form>
+        </div>
+    </div>
+    </div>
+    <div class="footer">
+        <div class="social">
+          <a href="#" class="fa fa-facebook"></a>
+          <a href="#" class="fa fa-twitter"></a>
+          <a href="#" class="fa fa-google"></a>
+          <a href="#" class="fa fa-linkedin"></a>
+          <a href="#" class="fa fa-youtube"></a>
+        </div>
+        <p style="color: white;"> ©2023 developed & Managed by Insurence Claim Team</p>
+      </div>
